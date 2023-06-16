@@ -1,12 +1,12 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int gappih    = 12;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 12;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 12;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 12;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 8;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 8;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 8;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 8;       /* vert outer gap between windows and screen edge */
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -19,15 +19,53 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]			= { "Ubuntu:size=11","FontAwesome:size=11" };
 static const char dmenufont[]		= "JetBrainsMono Nerd Font:size=11";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+
+// #include "./themes/base.h"
+
+
+// static const char *colors[][3] = {
+//     /*               fg             bg             border                          */
+//     [SchemeNorm]    = { norm_fg,      norm_bg,      norm_border    },    // unfocused wins
+//     [SchemeSel]     = { sel_fg,       sel_bg,       sel_border     },    // the focused win
+//     [SchemeStatus]  = { status_fg,    status_bg,    status_border  },    // Statusbar right {text, background, not used but cannot be empty}
+//     [SchemeTagsSel] = { tags_sel_fg,  tags_sel_bg,  tags_sel_border},    // Tagbar left selected {text, background, not used but cannot be empty}
+//     [SchemeTagsNorm]= { tags_norm_fg, tags_norm_bg, tags_norm_border},    // Tagbar left unselected {text, background, not used but cannot be empty}
+//     [SchemeInfoSel] = { info_sel_fg,  info_sel_bg,  info_sel_border},    // infobar middle selected {text, background, not used but cannot be empty}
+//     [SchemeInfoNorm]= { info_norm_fg, info_norm_bg, info_norm_border},    // infobar middle unselected {text, background, not used but cannot be empty}
+// };
+// static const char col_gray1[]       = "#222222";
+// static const char col_gray2[]       = "#444444";
+// static const char col_gray3[]       = "#bbbbbb";
+// static const char col_gray4[]       = "#eeeeee";
+// static const char col_cyan[]        = "#005577";
+// static const char *colors[][3]      = {
+// 	/*               fg         bg         border   */
+// 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+// 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+// 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+// 	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+// 	[SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+// 	[SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+// 	[SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+// };
+
+
+static const 		  char col_gray1[]       			= "#222222";
+static const 		  char col_gray2[]       			= "#444444";
+static const 		  char col_gray3[]       			= "#bbbbbb";
+static const 		  char col_gray4[]       			= "#eeeeee";
+static const 		  char col_cyan[]        			= "#c3002e";
+static const 		  char col_red[]        			= "#ff0000";
+static const 		  char col_yellow[]        			= "#FFDE00";
+static const 		  char *colors[][3]      			= {
+	/*               			fg         bg          border   */
+	[SchemeNorm] 		    = { col_gray3, col_gray1,  col_gray2  },
+	[SchemeSel]  		    = { col_gray4, col_cyan,   col_red    },
+	[SchemeStatus]  		= { col_gray3, col_gray1,  "#000000"  }, // Statusbar righrmt {text,background,not used but cannot be empty}
+	[SchemeTagsSel]  		= { col_gray4, col_cyan,   "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  		= { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -84,7 +122,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#222222", "-nf", "#bbbbbb", "-sb", "#005577", "-sf", "#eeeeee", NULL };
+// static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
 
 #include "movestack.c"
@@ -163,4 +202,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
