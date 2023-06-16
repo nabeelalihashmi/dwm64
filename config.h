@@ -20,19 +20,20 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]			= { "Ubuntu:size=11","FontAwesome:size=11" };
 static const char dmenufont[]		= "JetBrainsMono Nerd Font:size=11";
 
-// #include "./themes/base.h"
+#include "./themes/dracula.h"
 
 
-// static const char *colors[][3] = {
-//     /*               fg             bg             border                          */
-//     [SchemeNorm]    = { norm_fg,      norm_bg,      norm_border    },    // unfocused wins
-//     [SchemeSel]     = { sel_fg,       sel_bg,       sel_border     },    // the focused win
-//     [SchemeStatus]  = { status_fg,    status_bg,    status_border  },    // Statusbar right {text, background, not used but cannot be empty}
-//     [SchemeTagsSel] = { tags_sel_fg,  tags_sel_bg,  tags_sel_border},    // Tagbar left selected {text, background, not used but cannot be empty}
-//     [SchemeTagsNorm]= { tags_norm_fg, tags_norm_bg, tags_norm_border},    // Tagbar left unselected {text, background, not used but cannot be empty}
-//     [SchemeInfoSel] = { info_sel_fg,  info_sel_bg,  info_sel_border},    // infobar middle selected {text, background, not used but cannot be empty}
-//     [SchemeInfoNorm]= { info_norm_fg, info_norm_bg, info_norm_border},    // infobar middle unselected {text, background, not used but cannot be empty}
-// };
+static const char *colors[][3] = {
+    /*               fg             bg             border                          */
+    [SchemeNorm]    = { norm_fg,      norm_bg,      norm_border    },    // unfocused wins
+    [SchemeSel]     = { sel_fg,       sel_bg,       sel_border     },    // the focused win
+    [SchemeStatus]  = { status_fg,    status_bg,    status_border  },    // Statusbar right {text, background, not used but cannot be empty}
+    [SchemeTagsSel] = { tags_sel_fg,  tags_sel_bg,  tags_sel_border},    // Tagbar left selected {text, background, not used but cannot be empty}
+    [SchemeTagsNorm]= { tags_norm_fg, tags_norm_bg, tags_norm_border},    // Tagbar left unselected {text, background, not used but cannot be empty}
+    [SchemeInfoSel] = { info_sel_fg,  info_sel_bg,  info_sel_border},    // infobar middle selected {text, background, not used but cannot be empty}
+    [SchemeInfoNorm]= { info_norm_fg, info_norm_bg, info_norm_border},    // infobar middle unselected {text, background, not used but cannot be empty}
+};
+
 // static const char col_gray1[]       = "#222222";
 // static const char col_gray2[]       = "#444444";
 // static const char col_gray3[]       = "#bbbbbb";
@@ -50,23 +51,23 @@ static const char dmenufont[]		= "JetBrainsMono Nerd Font:size=11";
 // };
 
 
-static const 		  char col_gray1[]       			= "#222222";
-static const 		  char col_gray2[]       			= "#444444";
-static const 		  char col_gray3[]       			= "#bbbbbb";
-static const 		  char col_gray4[]       			= "#eeeeee";
-static const 		  char col_cyan[]        			= "#c3002e";
-static const 		  char col_red[]        			= "#ff0000";
-static const 		  char col_yellow[]        			= "#FFDE00";
-static const 		  char *colors[][3]      			= {
-	/*               			fg         bg          border   */
-	[SchemeNorm] 		    = { col_gray3, col_gray1,  col_gray2  },
-	[SchemeSel]  		    = { col_gray4, col_cyan,   col_red    },
-	[SchemeStatus]  		= { col_gray3, col_gray1,  "#000000"  }, // Statusbar righrmt {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  		= { col_gray4, col_cyan,   "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  		= { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
-};
+// static const 		  char col_gray1[]       			= "#222222";
+// static const 		  char col_gray2[]       			= "#444444";
+// static const 		  char col_gray3[]       			= "#bbbbbb";
+// static const 		  char col_gray4[]       			= "#eeeeee";
+// static const 		  char col_cyan[]        			= "#c3002e";
+// static const 		  char col_red[]        			= "#ff0000";
+// static const 		  char col_yellow[]        			= "#FFDE00";
+// static const 		  char *colors[][3]      			= {
+// 	/*               			fg         bg          border   */
+// 	[SchemeNorm] 		    = { col_gray3, col_gray1,  col_gray2  },
+// 	[SchemeSel]  		    = { col_gray4, col_cyan,   col_red    },
+// 	[SchemeStatus]  		= { col_gray3, col_gray1,  "#000000"  }, // Statusbar righrmt {text,background,not used but cannot be empty}
+// 	[SchemeTagsSel]  		= { col_gray4, col_cyan,   "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+//     [SchemeTagsNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+//     [SchemeInfoSel]  		= { col_gray4, col_gray1,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+//     [SchemeInfoNorm]  		= { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+// };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
