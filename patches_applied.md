@@ -1,6 +1,11 @@
-dwm-attachbottom-6.3.diff
+dwm-alwayscenter-20200625-f04cac6.diff  
 dwm-movestack-20211115-a786211.diff
-dwm-cfacts-vanitygaps-6.2.diff
-dwm-cfacts-20200913-61bb8b2.diff
+dwm-attachbottom-6.3.diff               
 dwm-pertag-20200914-61bb8b2.diff
+dwm-autostart-20210120-cb3f58a.diff     
+dwm-savefloats-20181212-b69c870.diff
+dwm-cfacts-20200913-61bb8b2.diff        
+dwm-status2d-6.3.diff
+dwm-cfacts-vanitygaps-6.2.diff          
 dwm-systray-6.4.diff
+dwm-colorbar-6.3.diff       
